@@ -1,11 +1,11 @@
 # PRIVACYGUARD AI
 > **Your Data. Your Browser. Your Privacy.**
 
-[![PromptWars × NIAT Pune](https://img.shields.io/badge/Hackathon-PromptWars_%C3%97_NIAT_Pune-8B5CF6?style=for-the-badge)](https://github.com)
-[![Category](https://img.shields.io/badge/Category-Cybersecurity%20%2F%20Data%20Privacy-22D3EE?style=for-the-badge)](https://github.com)
-[![Privacy Boundary](https://img.shields.io/badge/Privacy-100%25%20Local%20Browser%20Engine-22C55E?style=for-the-badge)](https://github.com)
-[![Tests](https://img.shields.io/badge/Tests-28%20Passed%20(Vitest)-purple?style=for-the-badge)](https://github.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![PromptWars x NIAT Pune](https://img.shields.io/badge/Hackathon-PromptWars_x_NIAT_Pune-8B5CF6?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
+[![Category](https://img.shields.io/badge/Category-Cybersecurity_%2F_Data_Privacy-22D3EE?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
+[![Privacy Boundary](https://img.shields.io/badge/Privacy-100%25_Local_Browser_Engine-22C55E?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
+[![Tests](https://img.shields.io/badge/Tests-40_Passed_(Vitest)-9333EA?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](LICENSE)
 
 ---
 
