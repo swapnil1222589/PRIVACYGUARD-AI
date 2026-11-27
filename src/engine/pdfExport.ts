@@ -1,7 +1,6 @@
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { AnalyticsSummary, DetectionResult, RedactionMode } from '../types';
-import { isConfirmedDetection } from './detectors';
 
 export interface PDFExportOptions {
   filename: string;
@@ -10,6 +9,10 @@ export interface PDFExportOptions {
   analytics: AnalyticsSummary;
   detections: DetectionResult[];
   isSummaryOnly?: boolean;
+}
+
+interface JsPDFWithAutoTable extends jsPDF {
+  lastAutoTable?: { finalY: number };
 }
 
 /**
@@ -22,7 +25,6 @@ export function exportSanitizedPDF(options: PDFExportOptions): { filename: strin
     sanitizedText,
     redactionMode,
     analytics,
-    detections,
     isSummaryOnly = false,
   } = options;
 
@@ -40,8 +42,6 @@ export function exportSanitizedPDF(options: PDFExportOptions): { filename: strin
   const DARK_BG: [number, number, number] = [17, 24, 39]; // #111827
   const TEXT_PRIMARY: [number, number, number] = [30, 41, 59]; // slate-800
   const TEXT_MUTED: [number, number, number] = [100, 116, 139]; // slate-500
-  const SUCCESS_GREEN: [number, number, number] = [16, 185, 129];
-  const DANGER_RED: [number, number, number] = [244, 63, 94];
 
   // ==========================================
   // PAGE 1: EXECUTIVE AUDIT & REPORT HEADER
@@ -81,6 +81,7 @@ export function exportSanitizedPDF(options: PDFExportOptions): { filename: strin
   yPos += 5;
   autoTable(doc, {
     startY: yPos,
+    margin: { left: 14, right: 14 },
     theme: 'grid',
     styles: { font: 'helvetica', fontSize: 9, cellPadding: 2.5 },
     headStyles: { fillColor: PRIMARY_PURPLE, textColor: 255, fontStyle: 'bold' },
@@ -100,7 +101,7 @@ export function exportSanitizedPDF(options: PDFExportOptions): { filename: strin
   });
 
   // Category Findings Breakdown Table
-  const lastTable = (doc as any).lastAutoTable;
+  const lastTable = (doc as JsPDFWithAutoTable).lastAutoTable;
   yPos = lastTable ? lastTable.finalY + 8 : 110;
 
   doc.setFontSize(12);
@@ -121,6 +122,7 @@ export function exportSanitizedPDF(options: PDFExportOptions): { filename: strin
 
   autoTable(doc, {
     startY: yPos,
+    margin: { left: 14, right: 14 },
     theme: 'striped',
     styles: { font: 'helvetica', fontSize: 8.5, cellPadding: 2 },
     headStyles: { fillColor: [71, 85, 105], textColor: 255, fontStyle: 'bold' },

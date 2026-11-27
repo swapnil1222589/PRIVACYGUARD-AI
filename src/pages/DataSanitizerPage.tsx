@@ -4,7 +4,7 @@ import { InputWorkspace } from '../components/sanitizer/InputWorkspace';
 import { RedactionModeSelector } from '../components/sanitizer/RedactionModeSelector';
 import { DiffViewer } from '../components/sanitizer/DiffViewer';
 import { EntityInspector } from '../components/sanitizer/EntityInspector';
-import { ShieldCheck, FileSpreadsheet, Sparkles, Upload, ArrowRight } from 'lucide-react';
+import { ShieldCheck, FileSpreadsheet, Sparkles, Upload } from 'lucide-react';
 
 export const DataSanitizerPage: React.FC = () => {
   const {

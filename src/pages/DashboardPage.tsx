@@ -1,37 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ShieldCheck,
-  EyeOff,
   Layers,
-  FileCheck2,
   Lock,
   ArrowRight,
   Sparkles,
   CreditCard,
-  Activity,
-  BarChart2,
-  PieChart as PieIcon,
-  HardDrive,
   FileSpreadsheet,
-  CheckCircle2,
-  AlertCircle,
   MoreVertical,
   TrendingUp,
   TrendingDown,
-  ShieldAlert,
-  Server,
-  Terminal,
-  Database,
-  ExternalLink,
-  ChevronRight,
-  Filter,
 } from 'lucide-react';
 import {
-  PieChart,
-  Pie,
-  Cell,
-  BarChart as ReBarChart,
-  Bar,
   XAxis,
   YAxis,
   Tooltip,
@@ -42,8 +22,6 @@ import {
 } from 'recharts';
 import { useSanitizer } from '../context/SanitizerContext';
 import { useTheme } from '../context/ThemeContext';
-import { CATEGORY_COLORS } from '../utils/colors';
-import { PIICategory } from '../types';
 
 interface DashboardPageProps {
   onNavigateToSanitizer: () => void;
@@ -51,12 +29,9 @@ interface DashboardPageProps {
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToSanitizer }) => {
   const {
-    document,
     analytics,
-    activityHistory,
     loadSampleText,
     loadSampleCsv,
-    redactionMode,
   } = useSanitizer();
   const { isDark } = useTheme();
 
@@ -81,8 +56,14 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigateToSaniti
     { date: '28 Mar', value: 245 },
   ];
 
+  interface DashboardTooltipProps {
+    active?: boolean;
+    payload?: Array<{ value: number | string; name?: string; color?: string }>;
+    label?: string;
+  }
+
   // Custom tooltips
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip: React.FC<DashboardTooltipProps> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div

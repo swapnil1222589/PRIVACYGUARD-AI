@@ -9,7 +9,6 @@ import {
   Sparkles,
   Shield,
   FileText,
-  FileSpreadsheet,
 } from 'lucide-react';
 import { DetectionResult, RedactionMode } from '../../types';
 import { CATEGORY_COLORS } from '../../utils/colors';
@@ -206,6 +205,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           <button
             type="button"
             onClick={handleCopy}
+            aria-label="Copy sanitized document to clipboard"
             className="flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-cardElevated hover:bg-borderTheme/50 text-textPrimary border border-borderTheme rounded-md transition-all shadow-subtle"
             title="Copy sanitized document to clipboard"
           >
@@ -216,6 +216,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           <button
             type="button"
             onClick={handleExportRaw}
+            aria-label={`Download sanitized ${document?.metadata.fileType.toUpperCase() || 'document'}`}
             className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-cardElevated hover:bg-borderTheme/50 text-textPrimary border border-borderTheme rounded-md transition-all shadow-subtle"
             title={`Download sanitized ${document?.metadata.fileType.toUpperCase() || 'document'}`}
           >
@@ -226,6 +227,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           <button
             type="button"
             onClick={handleExportPdf}
+            aria-label="Generate and download certified sanitized PDF report"
             className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold bg-primaryPurple hover:opacity-90 text-white rounded-md shadow-sm transition-all"
             title="Generate and download certified sanitized PDF report"
           >

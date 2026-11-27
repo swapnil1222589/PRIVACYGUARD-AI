@@ -7,15 +7,13 @@ import {
   AlertTriangle,
   HardDriveDownload,
   Shield,
-  Search,
   Sparkles,
   ChevronDown,
   ChevronRight,
-  Home,
-  Bell,
   CheckCircle2,
   FileCode,
   FileSpreadsheet,
+  Menu,
 } from 'lucide-react';
 import { useSanitizer } from '../../context/SanitizerContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -110,6 +108,20 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenM
       >
         {/* Left: Breadcrumb / Workspace Identification */}
         <div className="flex items-center gap-2 sm:gap-2.5 text-xs">
+          {/* Mobile Drawer Trigger Button */}
+          <button
+            type="button"
+            onClick={onOpenMobile}
+            aria-label="Open navigation menu"
+            className={`lg:hidden p-1.5 rounded-xl border transition-colors ${
+              isDark
+                ? 'border-[#2A2A2A] text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+                : 'border-[#E7E5EF] text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
+          >
+            <Menu className="w-4 h-4" />
+          </button>
+
           <button
             type="button"
             onClick={() => onNavigate('dashboard')}
@@ -421,7 +433,15 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate, onOpenM
 
 function renderResetModal(onConfirm: () => void, onCancel: () => void, isDark: boolean) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="purge-modal-title"
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') onCancel();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
+    >
       <div
         className={`border rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4 ${
           isDark
@@ -434,7 +454,7 @@ function renderResetModal(onConfirm: () => void, onCancel: () => void, isDark: b
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="font-semibold text-sm">Purge Workspace Memory?</h3>
+            <h3 id="purge-modal-title" className="font-semibold text-sm">Purge Workspace Memory?</h3>
             <p className="text-xs text-gray-400">Zero data is retained on servers or storage.</p>
           </div>
         </div>
@@ -470,7 +490,11 @@ function renderResetModal(onConfirm: () => void, onCancel: () => void, isDark: b
 
 function renderToast(message: string) {
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-purple-600 text-white shadow-xl text-xs font-medium animate-slide-up">
+    <div
+      role="status"
+      aria-live="polite"
+      className="fixed bottom-4 right-4 z-50 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-purple-600 text-white shadow-xl text-xs font-medium animate-slide-up"
+    >
       <CheckCircle2 className="w-4 h-4 text-white" />
       <span>{message}</span>
     </div>

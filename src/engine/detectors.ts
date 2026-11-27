@@ -138,7 +138,8 @@ export function detectPII(text: string): DetectionResult[] {
 
   // 5. Aadhaar-shaped Number Detection
   // Format: 12 digits, often formatted as XXXX XXXX XXXX or XXXX-XXXX-XXXX, or 12 continuous digits
-  const aadhaarRegex = /\b(\d{4}[ -]?\d{4}[ -]?\d{4})\b/g;
+  // Negative lookahead prevents 16-digit credit cards from being partially matched as 12-digit Aadhaar
+  const aadhaarRegex = /\b(\d{4}[ -]?\d{4}[ -]?\d{4})(?![ -]?\d)\b/g;
   while ((match = aadhaarRegex.exec(text)) !== null) {
     const val = match[1];
     const cleanDigits = val.replace(/[\s-]/g, '');

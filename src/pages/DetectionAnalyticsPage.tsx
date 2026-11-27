@@ -4,12 +4,7 @@ import {
   PieChart as PieIcon,
   Layers,
   FileSpreadsheet,
-  AlertTriangle,
   ShieldCheck,
-  CheckCircle2,
-  XCircle,
-  TrendingUp,
-  Activity,
   CreditCard,
   Lock,
 } from 'lucide-react';

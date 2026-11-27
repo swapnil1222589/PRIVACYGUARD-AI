@@ -8,8 +8,6 @@ import {
   Terminal,
   Settings,
   Info,
-  ChevronLeft,
-  ChevronRight,
   Lock,
   X,
   Layers,
@@ -32,8 +30,8 @@ export type NavigationPage =
 interface SidebarProps {
   currentPage: NavigationPage;
   onNavigate: (page: NavigationPage) => void;
-  collapsed: boolean;
-  onToggleCollapse: () => void;
+  collapsed?: boolean;
+  onToggleCollapse?: () => void;
   mobileOpen: boolean;
   onCloseMobile: () => void;
 }
@@ -41,8 +39,8 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({
   currentPage,
   onNavigate,
-  collapsed,
-  onToggleCollapse,
+  collapsed: _collapsed,
+  onToggleCollapse: _onToggleCollapse,
   mobileOpen,
   onCloseMobile,
 }) => {
@@ -152,6 +150,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 key={item.id}
                 onClick={(e) => handleNavClick(item.id, e)}
                 title={item.label}
+                aria-label={item.label}
                 className={`w-full flex items-center ${
                   !mobileOpen ? 'justify-center p-2.5 rounded-xl' : 'gap-2.5 px-3 py-2 rounded-xl'
                 } text-xs font-medium transition-all group relative ${

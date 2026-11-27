@@ -3,23 +3,19 @@ import {
   FileText,
   Search,
   Filter,
-  ShieldAlert,
   CheckCircle2,
   XCircle,
   HelpCircle,
   Layers,
-  ArrowRight,
 } from 'lucide-react';
 import { useSanitizer } from '../context/SanitizerContext';
 import { CATEGORY_COLORS } from '../utils/colors';
-import { isConfirmedDetection } from '../engine/detectors';
-import { PIICategory } from '../types';
 
 interface FindingsPageProps {
   onNavigateToSanitizer?: () => void;
 }
 
-export const FindingsPage: React.FC<FindingsPageProps> = ({ onNavigateToSanitizer }) => {
+export const FindingsPage: React.FC<FindingsPageProps> = ({ onNavigateToSanitizer: _onNavigateToSanitizer }) => {
   const { document, detections, redactionMode } = useSanitizer();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -66,6 +62,7 @@ export const FindingsPage: React.FC<FindingsPageProps> = ({ onNavigateToSanitize
           <input
             type="text"
             value={searchQuery}
+            aria-label="Search security findings"
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search entity ID, category or explanation..."
             className="w-full bg-inputBg border border-borderTheme rounded-xl pl-8 pr-3 py-1.5 text-xs text-textPrimary placeholder:text-textSecondary/60 focus:outline-none focus:border-primaryPurple transition-colors"
@@ -115,7 +112,6 @@ export const FindingsPage: React.FC<FindingsPageProps> = ({ onNavigateToSanitize
             <tbody className="divide-y divide-borderTheme/60">
               {filtered.length > 0 ? (
                 filtered.map(entity => {
-                  const confirmed = isConfirmedDetection(entity);
                   const catColor = CATEGORY_COLORS[entity.category]?.hex || '#9333EA';
 
                   return (

@@ -128,7 +128,7 @@ export function processCsvContent(
   }
 
   // Use generalDetections if row-by-row didn't produce cleaner indexes for text diffing
-  const finalDetections = generalDetections.map((d, i) => {
+  const finalDetections = generalDetections.map((d) => {
     // Try to find matching cell detection
     const match = detections.find(cd => cd.originalValue === d.originalValue);
     if (match) {

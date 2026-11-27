@@ -1,13 +1,10 @@
 import React from 'react';
 import {
-  ShieldAlert,
   AlertTriangle,
   CheckCircle2,
   Info,
   Clock,
   Shield,
-  FileCheck2,
-  ArrowRight,
   Bell,
 } from 'lucide-react';
 import { useSanitizer } from '../context/SanitizerContext';
@@ -16,7 +13,7 @@ interface AlertsPageProps {
   onNavigateToSanitizer?: () => void;
 }
 
-export const AlertsPage: React.FC<AlertsPageProps> = ({ onNavigateToSanitizer }) => {
+export const AlertsPage: React.FC<AlertsPageProps> = ({ onNavigateToSanitizer: _onNavigateToSanitizer }) => {
   const { activityHistory, analytics, document } = useSanitizer();
 
   // Synthesize genuine operational alerts from actual session events and validation diagnostics
@@ -113,7 +110,6 @@ export const AlertsPage: React.FC<AlertsPageProps> = ({ onNavigateToSanitizer })
           alerts.map(alert => {
             const isWarning = alert.level === 'warning';
             const isSuccess = alert.level === 'success';
-            const isInfo = alert.level === 'info';
 
             return (
               <div

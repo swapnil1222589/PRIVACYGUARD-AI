@@ -4,12 +4,9 @@ import {
   Award,
   Cpu,
   Layers,
-  Lock,
   ServerOff,
-  Database,
   ArrowRight,
   Code2,
-  FileSpreadsheet,
 } from 'lucide-react';
 
 interface AboutPageProps {

@@ -9,8 +9,6 @@ import {
   CheckCircle2,
   ServerOff,
   AlertTriangle,
-  FileCheck2,
-  Activity,
   HardDrive,
 } from 'lucide-react';
 import { useSanitizer } from '../context/SanitizerContext';

@@ -1,6 +1,6 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { exportSanitizedPDF } from '../engine/pdfExport';
-import { RedactionMode, AnalyticsSummary, DetectionResult } from '../types';
+import { AnalyticsSummary, DetectionResult } from '../types';
 
 describe('Client-Side PDF Export Engine', () => {
   const dummyAnalytics: AnalyticsSummary = {

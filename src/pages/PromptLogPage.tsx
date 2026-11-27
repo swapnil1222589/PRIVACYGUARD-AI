@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Sparkles, Filter, CheckCircle2, Search, Code, Cpu } from 'lucide-react';
+import { Terminal, Filter, CheckCircle2, Search } from 'lucide-react';
 import { PROMPT_LOG_ENTRIES } from '../data/promptLog';
 import { useSanitizer } from '../context/SanitizerContext';
 
@@ -44,6 +44,7 @@ export const PromptLogPage: React.FC = () => {
           <input
             type="text"
             value={searchQuery}
+            aria-label="Search prompt engineering logs"
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search prompts..."
             className="pl-8 pr-3 py-1.5 rounded-xl bg-cardElevated border border-borderTheme text-xs text-textPrimary placeholder-textSecondary focus:outline-none focus:border-primaryPurple transition-colors w-48 sm:w-60"

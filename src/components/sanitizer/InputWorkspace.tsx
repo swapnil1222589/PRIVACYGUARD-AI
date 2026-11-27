@@ -133,11 +133,20 @@ export const InputWorkspace: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
         {/* Upload Zone */}
         <div
+          role="button"
+          tabIndex={0}
+          aria-label="Upload document file drop zone. Click or press Enter to choose a TXT or CSV file."
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              fileInputRef.current?.click();
+            }
+          }}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
-          className={`border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-1.5 ${
+          className={`border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primaryPurple ${
             isDragging
               ? 'border-primaryPurple bg-primaryPurple/10'
               : 'border-borderTheme hover:border-primaryPurple/60 bg-inputBg/40 hover:bg-inputBg/70'
@@ -147,6 +156,7 @@ export const InputWorkspace: React.FC = () => {
             ref={fileInputRef}
             type="file"
             accept=".txt,.csv"
+            aria-label="Upload TXT or CSV file"
             onChange={handleFileChange}
             className="hidden"
           />
@@ -165,6 +175,7 @@ export const InputWorkspace: React.FC = () => {
         <div className="lg:col-span-2 flex flex-col justify-between space-y-1.5">
           <textarea
             value={rawInput}
+            aria-label="Raw text or document contents to sanitize"
             onChange={(e) => {
               setRawInput(e.target.value);
               if (errorMessage) setErrorMessage(null);

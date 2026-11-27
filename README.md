@@ -4,7 +4,7 @@
 [![PromptWars x NIAT Pune](https://img.shields.io/badge/Hackathon-PromptWars_x_NIAT_Pune-8B5CF6?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
 [![Category](https://img.shields.io/badge/Category-Cybersecurity_--_Data_Privacy-22D3EE?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
 [![Privacy Boundary](https://img.shields.io/badge/Privacy-Client--Side_Only-22C55E?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
-[![Tests](https://img.shields.io/badge/Tests-40_Passed-9333EA?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
+[![Tests](https://img.shields.io/badge/Tests-63_Passed-9333EA?style=for-the-badge)](https://github.com/swapnil1222589/PRIVACYGUARD-AI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](LICENSE)
 
 ---
@@ -176,7 +176,7 @@ PRIVACYGUARD AI/
 │   │   ├── PrivacyAuditPage.tsx
 │   │   ├── PromptLogPage.tsx
 │   │   └── SettingsPage.tsx
-│   ├── test/                 # Automated test suite (40 test cases across 8 suites)
+│   ├── test/                 # Automated test suite (63 test cases across 11 suites)
 │   ├── types/                # TypeScript interface definitions
 │   ├── utils/                # Category colors and helpers
 │   ├── App.tsx

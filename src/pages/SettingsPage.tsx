@@ -4,7 +4,6 @@ import {
   Moon,
   Sun,
   Shield,
-  Trash2,
   Sliders,
   Keyboard,
   CheckCircle2,
@@ -21,7 +20,7 @@ interface SettingsPageProps {
   onNavigateToSanitizer: () => void;
 }
 
-export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigateToSanitizer }) => {
+export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigateToSanitizer: _onNavigateToSanitizer }) => {
   const { setTheme, isDark } = useTheme();
   const { redactionMode, setRedactionMode, resetWorkspace } = useSanitizer();
 
@@ -169,8 +168,12 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigateToSanitize
               </div>
             </div>
             <button
+              type="button"
+              role="switch"
+              aria-checked={notificationState}
+              aria-label="Toggle session action notifications"
               onClick={() => setNotificationState(!notificationState)}
-              className={`w-10 h-5 rounded-full transition-colors relative ${
+              className={`w-10 h-5 rounded-full transition-colors relative focus:outline-none focus:ring-2 focus:ring-primaryPurple ${
                 notificationState ? 'bg-primaryPurple' : 'bg-borderTheme'
               }`}
             >
@@ -191,8 +194,12 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigateToSanitize
               </div>
             </div>
             <button
+              type="button"
+              role="switch"
+              aria-checked={autoScrollState}
+              aria-label="Toggle synchronized diff scrolling"
               onClick={() => setAutoScrollState(!autoScrollState)}
-              className={`w-10 h-5 rounded-full transition-colors relative ${
+              className={`w-10 h-5 rounded-full transition-colors relative focus:outline-none focus:ring-2 focus:ring-primaryPurple ${
                 autoScrollState ? 'bg-primaryPurple' : 'bg-borderTheme'
               }`}
             >

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
+import React, { createContext, useContext, useState, useMemo, useCallback, useRef } from 'react';
 import {
   DetectionResult,
   DocumentState,
@@ -85,7 +85,7 @@ export const SanitizerProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   // Maintain separate in-memory pseudonym context (never stored in local/sessionStorage)
-  const [pseudonymContext, setPseudonymContext] = useState<PseudonymContext>(createPseudonymContext);
+  const pseudonymContextRef = useRef<PseudonymContext>(createPseudonymContext());
 
   const addActivity = useCallback((action: string, detail: string, categoryCount?: number) => {
     // Zero-data logging: Never persist raw sensitive strings into log
@@ -109,7 +109,7 @@ export const SanitizerProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     isCsv: boolean
   ) => {
     const ctx = createPseudonymContext();
-    setPseudonymContext(ctx);
+    pseudonymContextRef.current = ctx;
 
     if (isCsv) {
       const sanitized = sanitizeCsv(rawText, mode, cats, ctx);
@@ -193,7 +193,7 @@ export const SanitizerProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     setDetections([]);
     setSanitizedText('');
     setSelectedEntityId(null);
-    setPseudonymContext(createPseudonymContext());
+    pseudonymContextRef.current = createPseudonymContext();
     setEnabledCategories(DEFAULT_CATEGORIES);
     addActivity('Workspace Cleared', 'All memory buffers, raw documents, and pseudonym mappings purged securely.');
   }, [addActivity]);

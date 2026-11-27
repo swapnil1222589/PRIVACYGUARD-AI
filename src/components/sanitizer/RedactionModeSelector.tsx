@@ -59,22 +59,29 @@ export const RedactionModeSelector: React.FC<RedactionModeSelectorProps> = ({
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+      <div
+        role="radiogroup"
+        aria-label="Redaction strategies"
+        className="grid grid-cols-1 md:grid-cols-3 gap-2.5"
+      >
         {modes.map(mode => {
           const Icon = mode.icon;
           const isSelected = currentMode === mode.id;
 
           return (
-            <div
+            <button
+              type="button"
+              role="radio"
+              aria-checked={isSelected}
               key={mode.id}
               onClick={() => onChangeMode(mode.id)}
-              className={`cursor-pointer rounded-xl p-3 border transition-all flex flex-col justify-between ${
+              className={`text-left rounded-xl p-3 border transition-all flex flex-col justify-between focus:outline-none focus:ring-2 focus:ring-primaryPurple ${
                 isSelected
                   ? 'bg-primaryPurple/10 border-primaryPurple shadow-card ring-1 ring-primaryPurple/30'
                   : 'bg-cardElevated border-borderTheme hover:border-primaryPurple/40 hover:bg-cardElevated/80'
               }`}
             >
-              <div className="space-y-1">
+              <div className="space-y-1 w-full">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div
@@ -100,11 +107,11 @@ export const RedactionModeSelector: React.FC<RedactionModeSelectorProps> = ({
                 </p>
               </div>
 
-              <div className="mt-2.5 pt-2 border-t border-borderTheme font-mono text-[10px] text-textSecondary truncate">
+              <div className="mt-2.5 pt-2 border-t border-borderTheme font-mono text-[10px] text-textSecondary truncate w-full">
                 <span>Sample: </span>
                 <span className="text-primaryPurple font-semibold">{mode.example}</span>
               </div>
-            </div>
+            </button>
           );
         })}
       </div>
