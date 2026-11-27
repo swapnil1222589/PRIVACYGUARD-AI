@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT ENTERPRISE SECURITY PALETTE */
+  --bg-app: #F7F7FB;
+  --bg-sidebar: #342171;
+  --bg-sidebar-active: #7040C9;
+  --text-sidebar: #D1CBE8;
+  --text-sidebar-active: #FFFFFF;
+  --bg-topbar: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-elevated: #FAF9FF;
+  --bg-input: #F4F2FA;
+  --color-primary: #7040C9;
+  --color-secondary-purple: #8B5CF6;
+  --color-accent: #22D3EE;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #F43F5E;
+  --text-primary: #25233A;
+  --text-secondary: #777386;
+  --border-color: #E7E5EF;
+
+  --shadow-subtle: 0 1px 2px 0 rgba(37, 35, 58, 0.04);
+  --shadow-card: 0 2px 5px 0 rgba(37, 35, 58, 0.04), 0 1px 2px 0 rgba(37, 35, 58, 0.02);
+  --shadow-elevated: 0 8px 16px -2px rgba(37, 35, 58, 0.06), 0 3px 6px -2px rgba(37, 35, 58, 0.03);
+
+  --scrollbar-track: #F7F7FB;
+  --scrollbar-thumb: #D5CEE8;
+  --scrollbar-thumb-hover: #B8ACD6;
+
+  --chart-grid: #E7E5EF;
+  --chart-tooltip-bg: #FFFFFF;
+  --chart-tooltip-border: #E7E5EF;
+  --chart-tooltip-text: #25233A;
+}
+
+.dark {
+  /* DARK CYBERSECURITY ANALYTICS PALETTE */
+  --bg-app: #101010;
+  --bg-sidebar: #151515;
+  --bg-sidebar-active: #9333EA;
+  --text-sidebar: #A1A1AA;
+  --text-sidebar-active: #FFFFFF;
+  --bg-topbar: #111111;
+  --bg-card: #191919;
+  --bg-card-elevated: #202020;
+  --bg-input: #151515;
+  --color-primary: #9333EA;
+  --color-secondary-purple: #A855F7;
+  --color-accent: #22D3EE;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #F43F5E;
+  --text-primary: #F5F5F5;
+  --text-secondary: #A1A1AA;
+  --border-color: #2A2A2A;
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+  --scrollbar-track: #151515;
+  --scrollbar-thumb: #2A2A2A;
+  --scrollbar-thumb-hover: #3F3F4E;
+
+  --chart-grid: #2A2A2A;
+  --chart-tooltip-bg: #191919;
+  --chart-tooltip-border: #2A2A2A;
+  --chart-tooltip-text: #F5F5F5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  overflow-x: hidden;
+}
+
+/* Custom adaptable scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Glow effects */
+.glow-purple {
+  box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px -3px rgba(34, 211, 238, 0.25);
+}

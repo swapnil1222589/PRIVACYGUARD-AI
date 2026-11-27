@@ -1,0 +1,58 @@
+import { PromptLogEntry } from '../types';
+
+export const PROMPT_LOG_ENTRIES: PromptLogEntry[] = [
+  {
+    id: 'prompt-01',
+    title: 'Core Architecture & Project Bootstrap',
+    objective: 'Establish a local-first, zero-telemetry cybersecurity architecture with Vite, React, TypeScript, and Tailwind CSS adhering to enterprise SaaS aesthetics.',
+    module: 'System Foundation',
+    stage: 'Foundation',
+    implementationSummary: 'Configured local bundle assets, TypeScript strict checking, custom cybersecurity color tokens (#080B16, #111827, #8B5CF6, #22D3EE), and glassmorphism design system.',
+    date: '2026-11-27',
+  },
+  {
+    id: 'prompt-02',
+    title: 'Deterministic Regex & Luhn PII Detection Engine',
+    objective: 'Design a modular, client-side detection engine for Email, Indian Phone (+91/0), IPv4 octet validation, PAN, Aadhaar-shape, and Luhn credit cards.',
+    module: 'Detection Engine',
+    stage: 'Detection Engine',
+    implementationSummary: 'Built pure TS detectors with ISO/IEC 7812 Luhn checksum validation, IPv4 [0, 255] octet boundaries, priority sorting, and deterministic overlap collision resolution.',
+    date: '2026-11-27',
+  },
+  {
+    id: 'prompt-03',
+    title: 'Three-Tier Redaction & Consistent Pseudonymization',
+    objective: 'Implement Full Masking ([REDACTED]), Partial Masking (r***@..., XXXXXX3210), and Consistent In-Memory Pseudonymization (USER_01, PHONE_01).',
+    module: 'Redaction Engine',
+    stage: 'Redaction & Masking',
+    implementationSummary: 'Engineered in-memory stateful mapping context ensuring identical entities receive identical pseudonyms while distinct entities increment sequentially, never persisting to disk.',
+    date: '2026-11-27',
+  },
+  {
+    id: 'prompt-04',
+    title: 'Dual-Stream Synchronized Diff & Interactive Inspector',
+    objective: 'Build an interactive side-by-side text comparator with synchronized scrolling, color-coded badges, entity navigation, and category toggles.',
+    module: 'UI / UX Components',
+    stage: 'UI & Visual Diff',
+    implementationSummary: 'Constructed responsive dual-pane viewer with line numbers, safe non-HTML escaping, entity inspector popover, category toggles, and instant clipboard copy.',
+    date: '2026-11-27',
+  },
+  {
+    id: 'prompt-05',
+    title: 'RFC 4180 CSV & TXT Streaming with Blob Exporter',
+    objective: 'Integrate Papa Parse for structured CSV table processing, cell coordinate mapping, and browser-native Blob download generation.',
+    module: 'File Pipeline',
+    stage: 'UI & Visual Diff',
+    implementationSummary: 'Implemented row/column coordinate mapping preserving commas, escaped quotes, and empty cells, with zero-server client-side file downloads.',
+    date: '2026-11-27',
+  },
+  {
+    id: 'prompt-06',
+    title: 'Privacy Health Audit & Telemetry Verification',
+    objective: 'Deliver an uncompromised privacy audit dashboard certifying offline operation, zero external HTTP calls, and memory-only storage guarantees.',
+    module: 'Privacy & Security',
+    stage: 'Testing & Auditing',
+    implementationSummary: 'Formulated live privacy status checks auditing network isolation, local blob creation, in-memory pseudonym cleanup, and session reset confirmation.',
+    date: '2026-11-27',
+  },
+];
